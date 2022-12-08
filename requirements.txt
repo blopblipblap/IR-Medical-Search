@@ -115,7 +115,7 @@ python-jose==3.3.0
 python-logstash-async==2.5.0
 python-multipart==0.0.5
 pytz==2020.4
-pywin32==301
+pywin32==305
 pywinpty==1.1.4
 PyYAML==6.0
 pyzmq==22.3.0

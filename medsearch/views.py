@@ -1,17 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from ir.bsbi import BSBIIndex
-from ir.compression import VBEPostings
-from ir.letor import LETOR
+from static.bsbi import BSBIIndex
+from static.compression import VBEPostings
+from static.letor import LETOR
 
 def index(request):
     return render(request, "search.html")
 
 def ranking(request):
-    BSBI_instance = BSBIIndex(data_dir = 'ir/collection', \
+    BSBI_instance = BSBIIndex(data_dir = 'static/collection', \
                           postings_encoding = VBEPostings, \
-                          output_dir = 'ir/index')
-    LETOR_instance = LETOR(model_dir='ir/model')
+                          output_dir = 'static/index')
+    LETOR_instance = LETOR(model_dir='static/model')
 
     query = request.GET['query']
 

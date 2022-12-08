@@ -57,7 +57,7 @@ class BSBIIndex:
     def load(self):
         """Memuat doc_id_map and term_id_map dari output directory"""
 
-        sys.path.append(r'ir')
+        sys.path.append(r'static')
         with open(os.path.join(self.output_dir, 'terms.dict'), 'rb') as f:
             self.term_id_map = pickle.load(f)
         with open(os.path.join(self.output_dir, 'docs.dict'), 'rb') as f:

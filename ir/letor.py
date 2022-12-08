@@ -17,10 +17,11 @@ NUM_LATENT_TOPICS = 200
 class LETOR:
     def __init__(self, model_dir):
         sys.path.append(r'ir')
+        self.model_dir = model_dir
+        
+    def training_prep(self):
         self.documents = {}
         self.queries = {}
-        self.model_dir = model_dir
-
         with open("ir/nfcorpus/train.docs") as file:
             for line in file:
                 doc_id, content = line.split("\t")
@@ -30,9 +31,6 @@ class LETOR:
             for line in file:
                 q_id, content = line.split("\t")
                 self.queries[q_id] = content.split()
-                
-        
-    def training_prep(self):
         #relevance level: 3 (fullt relevant), 2 (partially relevant), 1 (marginally relevant)
         #
         #grouping by q_id   
